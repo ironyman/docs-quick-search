@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Google Docs Quick Search",
+  "description" : "Adds a short cut for launching docs and auto focus search box when typing",
+  "icons": {
+    "128": "icons/icon128.png",
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  },
+  "minimum_chrome_version": "29",
+  "version": "0.1",
+  "background": {
+    "persistent": false,
+    "scripts": [ "background.js" ]
+  },
+  "browser_action": {
+    "default_popup1": "index.html",
+    "default_icon": "icons/icon16.png"
+  },
+  "commands": {
+   "_execute_browser_action": {
+     "suggested_key": {
+       "default": "Alt+P"
+     }
+   }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/document/u/0/"],
+      "css": ["docs.css"],
+      "js": ["docs.js"]
+    }
+  ],
+  "permissions": [
+    "tabs"
+  ]
+}
